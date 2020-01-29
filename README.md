@@ -1,4 +1,8 @@
 # AngularPuntuaciones
+Vamos a usar Angular 8
+Como editor Visual studio code
+Como Base de Datos MongoDB
+Repositorio Git/GitHub
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
