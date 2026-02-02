@@ -1,0 +1,31 @@
+name: Regenerar package-lock.json
+
+on:
+  workflow_dispatch:  # Permite ejecutarlo manualmente
+
+jobs:
+  fix-lockfile:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Eliminar package-lock.json antiguo
+        run: rm -f package-lock.json
+      
+      - name: Generar nuevo package-lock.json
+        run: npm install
+      
+      - name: Commit y push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "Regenerar package-lock.json"
+          git push
