@@ -16,19 +16,14 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Instalar dependencias
-        run: npm ci
+      - name: Instalar dependencias con npm install
+        run: npm install --legacy-peer-deps
       
       - name: Instalar Angular CLI
         run: npm install -g @angular/cli
       
       - name: Actualizar Angular
         run: ng update @angular/core @angular/cli --force --allow-dirty
-      
-      - name: Regenerar package-lock.json
-        run: |
-          rm -f package-lock.json
-          npm install
       
       - name: Commit y push
         run: |
