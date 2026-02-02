@@ -1,4 +1,4 @@
-name: Actualizar Angular
+name: Actualizar Angular paso a paso
 
 on:
   workflow_dispatch:
@@ -14,21 +14,34 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
       
-      - name: Instalar dependencias con npm install
+      - name: Instalar dependencias
         run: npm install --legacy-peer-deps
       
       - name: Instalar Angular CLI
         run: npm install -g @angular/cli
       
-      - name: Actualizar Angular
-        run: ng update @angular/core @angular/cli --force --allow-dirty
+      - name: Actualizar Angular paso a paso
+        run: |
+          ng update @angular/core@12 @angular/cli@12 --force --allow-dirty || true
+          ng update @angular/core@13 @angular/cli@13 --force --allow-dirty || true
+          ng update @angular/core@14 @angular/cli@14 --force --allow-dirty || true
+          ng update @angular/core@15 @angular/cli@15 --force --allow-dirty || true
+          ng update @angular/core@16 @angular/cli@16 --force --allow-dirty || true
+          ng update @angular/core@17 @angular/cli@17 --force --allow-dirty || true
+          ng update @angular/core@18 @angular/cli@18 --force --allow-dirty || true
+          ng update @angular/core@19 @angular/cli@19 --force --allow-dirty || true
+      
+      - name: Regenerar package-lock.json
+        run: |
+          rm -f package-lock.json
+          npm install --legacy-peer-deps
       
       - name: Commit y push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Actualizar Angular y corregir vulnerabilidad XSS"
+          git commit -m "Actualizar Angular a última versión"
           git push
