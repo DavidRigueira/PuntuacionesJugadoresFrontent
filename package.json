@@ -18,7 +18,7 @@
     "@angular/forms": "~21.2.5",
     "@angular/platform-browser": "~21.2.7",
     "@angular/platform-browser-dynamic": "~21.2.7",
-    "@angular/router": "~21.2.5",
+    "@angular/router": "~21.2.7",
     "pbkdf2": "^3.1.5",
     "qs": "^6.14.2",
     "rxjs": "~7.8.2",
