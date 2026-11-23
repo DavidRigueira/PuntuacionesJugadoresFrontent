@@ -2,8 +2,8 @@
   "name": "angular-puntuaciones",
   "version": "0.0.0",
   "dependencies": {
-    "@angular/animations": "~22.3.0",
-    "@angular/common": "~22.2.5",
+    "@angular/animations": "~22.2.6",
+    "@angular/common": "~22.3.0",
     "@angular/compiler": "~22.2.5",
     "@angular/core": "~22.3.0",
     "@angular/forms": "~22.3.0",
